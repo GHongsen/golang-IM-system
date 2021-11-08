@@ -117,6 +117,6 @@ func CreateUser(conn net.Conn, server *Server) *User {
 func (user *User) ListenMessage() {
 	for {
 		msg := <-user.C
-		user.conn.Write([]byte(msg + "\n"))
+		user.WriteMsg(msg)
 	}
 }
